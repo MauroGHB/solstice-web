@@ -174,6 +174,7 @@ export default function HoloSphere() {
         }
       `}</style>
       <div 
+        className="holo-container"
         onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}

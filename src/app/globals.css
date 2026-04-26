@@ -114,3 +114,18 @@ a {
     font-size: clamp(2rem, 8vw, 3.5rem) !important;
   }
 }
+
+.mobile-only {
+  display: none !important;
+}
+@media (max-width: 768px) {
+  .mobile-only {
+    display: flex !important;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+  .holo-container {
+    max-width: 300px !important;
+  }
+}

@@ -62,12 +62,12 @@ export default function Home() {
         
         {/* Hero Section */}
         <motion.section 
-          style={{ y: yHero, opacity: opacityHero, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", minHeight: "70vh", justifyContent: "center", gap: "2rem", perspective: "1000px" }}
+          style={{ y: yHero, opacity: opacityHero, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", minHeight: "70vh", justifyContent: "center", gap: "2rem" }}
         >
           <motion.div
-            initial={{ opacity: 0, rotateX: 20, y: 50 }}
-            animate={{ opacity: 1, rotateX: 0, y: 0 }}
-            transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div style={{
               display: "inline-block",

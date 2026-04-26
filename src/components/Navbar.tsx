@@ -3,12 +3,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import { Globe, ChevronDown } from "lucide-react";
+import { Globe, ChevronDown, Menu, X } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 export default function Navbar() {
   const { t, language, setLanguage } = useLanguage();
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
   const languages = [
@@ -31,17 +32,24 @@ export default function Navbar() {
 
   return (
     <nav className="responsive-nav" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2rem", maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 50 }}>
-      <Link href="/" style={{ textDecoration: "none" }}>
-        <motion.h1 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          style={{ fontSize: "2rem", fontWeight: "bold", letterSpacing: "-1px", color: "white" }}
-        >
-          Sol<span className="text-gradient">Stice</span>
-        </motion.h1>
-      </Link>
+      
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+        <Link href="/" style={{ textDecoration: "none" }}>
+          <motion.h1 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            style={{ fontSize: "2rem", fontWeight: "bold", letterSpacing: "-1px", color: "white" }}
+          >
+            Sol<span className="text-gradient">Stice</span>
+          </motion.h1>
+        </Link>
 
-      <div className="responsive-nav-links" style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+        <div className="mobile-only" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} style={{ cursor: "pointer", color: "white" }}>
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </div>
+      </div>
+
+      <div className={`responsive-nav-links ${isMobileMenuOpen ? "" : "desktop-only"}`} style={{ display: "flex", alignItems: "center", gap: "2rem", width: "100%", justifyContent: "flex-end" }}>
         <div className="responsive-nav-links" style={{ display: "flex", gap: "1.5rem" }}>
           <Link href="/caracteristicas" style={{ color: "var(--color-text-muted)", textDecoration: "none", fontWeight: "500", transition: "color 0.3s" }} onMouseOver={(e) => e.currentTarget.style.color = "white"} onMouseOut={(e) => e.currentTarget.style.color = "var(--color-text-muted)"}>
             {t("nav.features")}
