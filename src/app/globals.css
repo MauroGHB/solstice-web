@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg-dark: #0a050f; /* Deep dark purple/black */
+  --color-bg-light: #160a21; /* Slightly lighter deep purple */
+  --color-sun-orange: #ff5e00;
+  --color-sun-yellow: #ffb800;
+  --color-sun-red: #d92027;
+  --color-text-main: #ffffff;
+  --color-text-muted: #rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(22, 10, 33, 0.6);
+  --glass-border: rgba(255, 94, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  background-image: radial-gradient(circle at top right, rgba(217, 32, 39, 0.1), transparent 40%),
+                    radial-gradient(circle at bottom left, rgba(255, 94, 0, 0.05), transparent 40%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-sun-yellow), var(--color-sun-orange), var(--color-sun-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ambient glow cursor follower effect setup */
+.ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.1s ease;
+}
