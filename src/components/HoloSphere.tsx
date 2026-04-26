@@ -6,9 +6,14 @@ import { PointerEvent, useState, useEffect, useMemo } from "react";
 export default function HoloSphere() {
   const [isDragging, setIsDragging] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
     setMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // Base constant rotation
@@ -191,12 +196,15 @@ export default function HoloSphere() {
         position: "relative",
         margin: "0 auto",
         cursor: isDragging ? "grabbing" : "crosshair",
-        touchAction: "none"
+        touchAction: "none",
+        transform: isMobile ? "scale(0.65)" : "none"
       }}
     >
-      <div style={{ position: "absolute", bottom: "0rem", color: "var(--color-sun-yellow)", fontSize: "0.85rem", opacity: 0.6, pointerEvents: "none", fontWeight: "bold", letterSpacing: "1px" }}>
-        MANTÉN CLIC DERECHO PARA ROTAR EL NEXO 3D
-      </div>
+      {!isMobile && (
+        <div style={{ position: "absolute", bottom: "0rem", color: "var(--color-sun-yellow)", fontSize: "0.85rem", opacity: 0.6, pointerEvents: "none", fontWeight: "bold", letterSpacing: "1px" }}>
+          MANTÉN CLIC DERECHO PARA ROTAR EL NEXO 3D
+        </div>
+      )}
 
       {/* CORE OUTSIDE OF 3D ROTATION: This guarantees it NEVER flattens into a line. It acts as a perfect sphere. */}
       <div
@@ -224,14 +232,16 @@ export default function HoloSphere() {
           transformStyle: "preserve-3d"
         }}
       >
-        <div style={{
-          position: "absolute",
-          top: "-150px", left: "-150px", width: "300px", height: "300px",
-          background: "radial-gradient(circle, rgba(255, 94, 0, 0.15) 0%, transparent 70%)",
-          transform: "translateZ(-50px)",
-          borderRadius: "50%",
-          pointerEvents: "none"
-        }} />
+        {!isMobile && (
+          <div style={{
+            position: "absolute",
+            top: "-150px", left: "-150px", width: "300px", height: "300px",
+            background: "radial-gradient(circle, rgba(255, 94, 0, 0.15) 0%, transparent 70%)",
+            transform: "translateZ(-50px)",
+            borderRadius: "50%",
+            pointerEvents: "none"
+          }} />
+        )}
 
         {wireframes.map((wf, i) => (
           <div key={`wf-${i}`} style={{
@@ -249,7 +259,7 @@ export default function HoloSphere() {
           </div>
         ))}
 
-        {arcs.map(arc => (
+        {(isMobile ? arcs.slice(0, 12) : arcs).map(arc => (
           <div 
             key={`arc-wrap-${arc.id}`} 
             style={{
@@ -274,7 +284,7 @@ export default function HoloSphere() {
           </div>
         ))}
         
-        {dataNodes.map(node => (
+        {(isMobile ? dataNodes.slice(0, 10) : dataNodes).map(node => (
           <div 
             key={`node-wrap-${node.id}`}
             style={{

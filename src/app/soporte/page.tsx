@@ -16,7 +16,7 @@ export default function Soporte() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="glass-panel"
+          className="glass-panel responsive-padding"
           style={{ maxWidth: "800px", margin: "0 auto", padding: "4rem", display: "flex", flexDirection: "column", gap: "3rem", textAlign: "center" }}
         >
           <div>
