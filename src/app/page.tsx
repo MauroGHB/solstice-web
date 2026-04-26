@@ -221,14 +221,14 @@ export default function Home() {
                 </p>
               </div>
               <div style={{ background: "rgba(0,0,0,0.5)", padding: "1rem", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)", flex: "1 1 300px", fontFamily: "monospace", color: "var(--color-sun-orange)", fontSize: "0.9rem" }}>
-                <span style={{color: "#888"}}>// Iniciar agente SolStice</span><br/>
-                <span style={{color: "#c678dd"}}>import</span> &#123; SolStice &#125; <span style={{color: "#c678dd"}}>from</span> <span style={{color: "#98c379"}}>'@solstice/sdk'</span>;<br/>
+                <span style={{color: "#888"}}>{"// Iniciar agente SolStice"}</span><br/>
+                <span style={{color: "#c678dd"}}>import</span> &#123; SolStice &#125; <span style={{color: "#c678dd"}}>from</span> <span style={{color: "#98c379"}}>&apos;@solstice/sdk&apos;</span>;<br/>
                 <br/>
                 <span style={{color: "#e5c07b"}}>const</span> agent = <span style={{color: "#c678dd"}}>new</span> <span style={{color: "#e5c07b"}}>SolStice</span>(&#123; <br/>
                 &nbsp;&nbsp;apiKey: process.env.<span style={{color: "#e06c75"}}>SOLSTICE_KEY</span> <br/>
                 &#125;);<br/>
                 <br/>
-                <span style={{color: "#c678dd"}}>await</span> agent.<span style={{color: "#61afef"}}>analyzeMarket</span>(&#123; sector: <span style={{color: "#98c379"}}>'fintech'</span> &#125;);
+                <span style={{color: "#c678dd"}}>await</span> agent.<span style={{color: "#61afef"}}>analyzeMarket</span>(&#123; sector: <span style={{color: "#98c379"}}>&apos;fintech&apos;</span> &#125;);
               </div>
             </motion.div>
           </div>
