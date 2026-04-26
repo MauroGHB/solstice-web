@@ -60,3 +60,57 @@ a {
   z-index: 0;
   transition: background 0.1s ease;
 }
+
+/* Responsive overrides for inline styles */
+@media (max-width: 768px) {
+  .responsive-nav {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding: 1rem !important;
+  }
+  .responsive-nav-links {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  .responsive-hero-btns {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .responsive-hero-btns button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .responsive-footer {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .responsive-footer-links {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+  .responsive-grid-span {
+    grid-column: span 1 / span 1 !important;
+  }
+  .responsive-padding {
+    padding: 1rem !important;
+  }
+  .responsive-hide {
+    display: none !important;
+  }
+  .responsive-text-center {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-nav-links {
+    gap: 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  h2 {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+  }
+}

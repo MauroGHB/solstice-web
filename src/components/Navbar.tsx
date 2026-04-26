@@ -30,7 +30,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2rem", maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 50 }}>
+    <nav className="responsive-nav" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "2rem", maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 50 }}>
       <Link href="/" style={{ textDecoration: "none" }}>
         <motion.h1 
           initial={{ opacity: 0, x: -20 }}
@@ -41,8 +41,8 @@ export default function Navbar() {
         </motion.h1>
       </Link>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
-        <div style={{ display: "flex", gap: "1.5rem" }}>
+      <div className="responsive-nav-links" style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+        <div className="responsive-nav-links" style={{ display: "flex", gap: "1.5rem" }}>
           <Link href="/caracteristicas" style={{ color: "var(--color-text-muted)", textDecoration: "none", fontWeight: "500", transition: "color 0.3s" }} onMouseOver={(e) => e.currentTarget.style.color = "white"} onMouseOut={(e) => e.currentTarget.style.color = "var(--color-text-muted)"}>
             {t("nav.features")}
           </Link>
@@ -54,7 +54,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <div className="responsive-nav-links" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           
           {/* Custom Language Dropdown */}
           <div ref={langRef} style={{ position: "relative" }}>

@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <main ref={containerRef} style={{ position: "relative", minHeight: "100vh" }}>
 
-      <div style={{ position: "relative", zIndex: 1, padding: "2rem", maxWidth: "1200px", margin: "0 auto" }}>
+      <div className="responsive-padding" style={{ position: "relative", zIndex: 1, padding: "2rem", maxWidth: "1200px", margin: "0 auto" }}>
         
         {/* Hero Section */}
         <motion.section 
@@ -91,7 +91,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}>
+          <motion.div className="responsive-hero-btns" style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}>
             <motion.button 
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255, 94, 0, 0.4)" }}
               whileTap={{ scale: 0.95 }}
@@ -141,8 +141,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", gap: "2rem", position: "relative" }}>
-            <div style={{ position: "absolute", top: "50%", left: "10%", right: "10%", height: "2px", background: "linear-gradient(90deg, rgba(255,94,0,0) 0%, rgba(255,94,0,0.3) 50%, rgba(255,94,0,0) 100%)", zIndex: -1, display: "none" }} />
+          <div className="responsive-nav" style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", gap: "2rem", position: "relative" }}>
+            <div className="responsive-hide" style={{ position: "absolute", top: "50%", left: "10%", right: "10%", height: "2px", background: "linear-gradient(90deg, rgba(255,94,0,0) 0%, rgba(255,94,0,0.3) 50%, rgba(255,94,0,0) 100%)", zIndex: -1, display: "none" }} />
             
             <motion.div whileHover={{ y: -10, boxShadow: "0 10px 30px rgba(255, 94, 0, 0.2)" }} className="glass-panel" style={{ flex: "1 1 250px", padding: "2.5rem", textAlign: "center", transition: "box-shadow 0.3s" }}>
               <div style={{ background: "rgba(255, 94, 0, 0.1)", width: "64px", height: "64px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem", color: "var(--color-sun-orange)" }}>
@@ -188,7 +188,7 @@ export default function Home() {
             gap: "1.5rem",
             gridAutoRows: "minmax(200px, auto)"
           }}>
-            <motion.div whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(255, 184, 0, 0.15)", borderColor: "rgba(255, 184, 0, 0.4)" }} className="glass-panel" style={{ padding: "2rem", gridColumn: "span 2 / span 2", transition: "border-color 0.3s" }}>
+            <motion.div whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(255, 184, 0, 0.15)", borderColor: "rgba(255, 184, 0, 0.4)" }} className="glass-panel responsive-grid-span" style={{ padding: "2rem", gridColumn: "span 2 / span 2", transition: "border-color 0.3s" }}>
               <BrainCircuit size={40} color="var(--color-sun-yellow)" style={{ marginBottom: "1rem" }} />
               <h4 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "0.5rem" }}>{t("feat.grid1.title")}</h4>
               <p style={{ color: "var(--color-text-muted)" }}>
@@ -212,7 +212,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <motion.div whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(255, 184, 0, 0.15)", borderColor: "rgba(255, 184, 0, 0.4)" }} className="glass-panel" style={{ padding: "2rem", gridColumn: "span 2 / span 2", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "2rem", transition: "border-color 0.3s" }}>
+            <motion.div whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(255, 184, 0, 0.15)", borderColor: "rgba(255, 184, 0, 0.4)" }} className="glass-panel responsive-grid-span responsive-nav" style={{ padding: "2rem", gridColumn: "span 2 / span 2", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "2rem", transition: "border-color 0.3s" }}>
               <div>
                 <Zap size={40} color="var(--color-sun-yellow)" style={{ marginBottom: "1rem" }} />
                 <h4 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "0.5rem" }}>{t("feat.grid4.title")}</h4>
@@ -241,7 +241,7 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-panel"
+            className="glass-panel responsive-padding"
             style={{ padding: "4rem", maxWidth: "600px", width: "100%", textAlign: "center", position: "relative", overflow: "hidden" }}
           >
             <div style={{ position: "absolute", top: "-50%", left: "50%", transform: "translateX(-50%)", width: "100%", height: "100%", background: "radial-gradient(circle, rgba(255, 94, 0, 0.15) 0%, transparent 70%)", zIndex: 0, pointerEvents: "none" }} />
