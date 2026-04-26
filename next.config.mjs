@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    experimental: {
+        forceSwcTransforms: false,
+    },
+}
 
-export default nextConfig;
+export default nextConfig
